@@ -4,11 +4,10 @@ from pyfiglet import figlet_format
 import sys
 import socket
 import datetime
-import os
-import time
 import subprocess
 import argparse
-import numpy as np
+import os
+
 
 def printBanner():
     banner = figlet_format("NPSCANNER", font="slant", width=300)
@@ -59,6 +58,11 @@ def sigint():
     print("[*] Exiting...")
     sys.exit()
 
+def menu():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    printBanner()
+    printHeaders()
+
 if __name__ == "__main__" :
     parser = argparse.ArgumentParser(description="Network Post Scanner")
     parser.add_argument("dest", help="Host to scan.")
@@ -66,8 +70,7 @@ if __name__ == "__main__" :
     args = parser.parse_args()
     ip, ports = args.dest ,args.port_range
     try:
-        printBanner()
-        printHeaders()
+        menu()
         target, host_latency = getHostname(ip)
         printOnline(target,host_latency)
         open_ports = scanPorts(target,ports)
