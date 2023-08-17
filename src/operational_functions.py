@@ -1,6 +1,6 @@
 from loose_functions import *
 
-def osInfo():
+def osInfo(ip):
     newLine(2)
     print("Do a scan to determinate osInfo")
     newLine(3)

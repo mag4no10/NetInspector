@@ -45,6 +45,9 @@ def printBanner():
     print(Fore.BLUE + banner3 + "\n\n")
     colorReset()
 
+def printPrompt():
+    ip = input("NetInspector>  ")
+
 def printOptions():
     print("\n\n")
     print(Fore.RED + "[", end="")
@@ -53,7 +56,8 @@ def printOptions():
     print(Fore.RESET + "  Operating System Information")
     print(Fore.RED + "[", end="")
     print(Fore.LIGHTMAGENTA_EX + "02", end="")
-    print(Fore.RED + "]")
+    print(Fore.RED + "]", end="")
+    print(Fore.RESET + "")
     print(Fore.RED + "[", end="")
     print(Fore.LIGHTMAGENTA_EX + "03", end="")
     print(Fore.RED + "]")
@@ -73,6 +77,7 @@ def printOptions():
     print(Fore.LIGHTMAGENTA_EX + "00", end="")
     print(Fore.RED + "]", end="")
     print(Fore.RESET + "  exit")
+    
     colorReset()
 
 def printQuest():
@@ -85,15 +90,16 @@ def printQuest():
     newLine(1)
     return inp
 
-def optionChecker(option):
+def optionChecker(option, ip):
     if (option == "00"):
-        exitProgram()  
+        exitProgram()
+    elif (option == "99"):
+        aboutProgram()  
     clear()
     printBanner()
     match option:
         case "01":
-            osInfo()
-
+            osInfo(ip)
         case _:
             print("Not a valid option, try again")
 

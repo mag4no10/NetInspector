@@ -13,5 +13,8 @@ def exitProgram():
     print("[+] Exiting program...")
     exit(0)
 
+def aboutProgram():
+    print("This is a program explanation")
+
 def newLine(num):
     for i in range(num): print("\n")

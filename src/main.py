@@ -54,9 +54,12 @@ def menu():
     while (option != "00"):
         clear()
         printBanner()
+        ip = printPrompt()
+        clear()
+        printBanner()
         printOptions()
         option = printQuest()
-        optionChecker(option)
+        optionChecker(option, ip)
 
 if __name__ == "__main__" :
     try:
