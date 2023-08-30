@@ -1,2 +1,4 @@
 Scan devices connected to your router
 host discovery
+
+pip3 install -r requirements.txt
